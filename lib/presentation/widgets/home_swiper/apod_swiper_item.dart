@@ -13,7 +13,7 @@ class Apod extends StatelessWidget {
         const Align(
             alignment: Alignment.topLeft,
             child: Text('Astronomy Picture Of The Day',
-                style: TextStyle(color: Colors.white))),
+                style: TextStyle(color: Colors.white)))
       ],
     );
   }

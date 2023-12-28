@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nasa_curiosities/presentation/providers/pictures/pictures_providers.dart';
 
-import 'package:nasa_curiosities/presentation/widgets/apod_swiper_item.dart';
+import 'package:nasa_curiosities/presentation/widgets/home_swiper/apod_swiper_item.dart';
 import 'package:nasa_curiosities/presentation/widgets/bottom_navigation_bar.dart';
+import 'package:nasa_curiosities/presentation/widgets/home_swiper/home_swiper.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   static const String name = 'home-screen';
@@ -33,10 +34,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         appBar: AppBar(
             title:
                 Center(child: Text('Welcome', style: textStyles.titleLarge))),
-        body: Swiper(
-          itemCount: 1,
-          itemBuilder: (context, index) => Apod(apod: apod.first),
-        ),
+        body: const HomeSwiper(),
         bottomNavigationBar: const CustomBottomNavBar());
     //SingleChildScrollView(
     //    physics: const BouncingScrollPhysics(),
