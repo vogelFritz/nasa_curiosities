@@ -20,10 +20,21 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final apod = ref.watch(apodProvider);
+    final textStyles = Theme.of(context).textTheme;
+    if (apod.isEmpty) {
+      return Scaffold(
+          body: Text('Apod no disponible', style: textStyles.displayLarge));
+    }
     return Scaffold(
-        appBar: AppBar(title: const Text('Astronomy Picture Of The Day')),
-        body: Image.network((apod.isEmpty)
-            ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019'
-            : apod.first.url));
+        appBar: AppBar(
+            title: Text('Astronomy Picture Of The Day',
+                style: textStyles.titleLarge)),
+        body: Column(
+          children: [
+            Image.network(apod.first.url),
+            Text(apod.first.explanation ?? 'No explanation available',
+                style: textStyles.bodyMedium)
+          ],
+        ));
   }
 }

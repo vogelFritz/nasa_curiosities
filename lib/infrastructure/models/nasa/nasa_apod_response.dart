@@ -2,13 +2,13 @@
 //
 //     final nasaApodResponse = nasaApodResponseFromJson(jsonString);
 
-import 'dart:convert';
-
-NasaApodResponse nasaApodResponseFromJson(String str) =>
-    NasaApodResponse.fromJson(json.decode(str));
-
-String nasaApodResponseToJson(NasaApodResponse data) =>
-    json.encode(data.toJson());
+// import 'dart:convert';
+//
+// NasaApodResponse nasaApodResponseFromJson(String str) =>
+//     NasaApodResponse.fromJson(json.decode(str));
+//
+// String nasaApodResponseToJson(NasaApodResponse data) =>
+//     json.encode(data.toJson());
 
 class NasaApodResponse {
   final String copyright;
