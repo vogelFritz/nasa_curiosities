@@ -1,6 +1,10 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nasa_curiosities/presentation/providers/pictures/pictures_providers.dart';
+
+import 'package:nasa_curiosities/presentation/widgets/apod_swiper_item.dart';
+import 'package:nasa_curiosities/presentation/widgets/bottom_navigation_bar.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   static const String name = 'home-screen';
@@ -27,14 +31,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
     return Scaffold(
         appBar: AppBar(
-            title: Text('Astronomy Picture Of The Day',
-                style: textStyles.titleLarge)),
-        body: Column(
-          children: [
-            Image.network(apod.first.url),
-            Text(apod.first.explanation ?? 'No explanation available',
-                style: textStyles.bodyMedium)
-          ],
-        ));
+            title:
+                Center(child: Text('Welcome', style: textStyles.titleLarge))),
+        body: Swiper(
+          itemCount: 1,
+          itemBuilder: (context, index) => Apod(apod: apod.first),
+        ),
+        bottomNavigationBar: const CustomBottomNavBar());
+    //SingleChildScrollView(
+    //    physics: const BouncingScrollPhysics(),
+    //    child: Apod(apod: apod.first)));
   }
 }
