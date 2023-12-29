@@ -9,7 +9,10 @@ class Apod extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.network(apod.url),
+        Align(
+          alignment: Alignment.center,
+          child: Image.network(apod.url),
+        ),
         const Align(
             alignment: Alignment.topLeft,
             child: Text('Astronomy Picture Of The Day',

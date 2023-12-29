@@ -33,7 +33,7 @@ class NasaApodResponse {
 
   factory NasaApodResponse.fromJson(Map<String, dynamic> json) =>
       NasaApodResponse(
-        copyright: json["copyright"],
+        copyright: json["copyright"] ?? 'No copyright',
         date: DateTime.parse(json["date"]),
         explanation: json["explanation"],
         hdurl: json["hdurl"],
