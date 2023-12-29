@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_curiosities/domain/entities/picture.dart';
 
-class Apod extends StatelessWidget {
+class ApodSwiperItem extends StatelessWidget {
   final Picture apod;
-  const Apod({super.key, required this.apod});
+  const ApodSwiperItem({super.key, required this.apod});
 
   @override
   Widget build(BuildContext context) {
