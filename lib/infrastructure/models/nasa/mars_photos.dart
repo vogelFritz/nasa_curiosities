@@ -2,6 +2,8 @@
 //
 //     final marsPhotosResponse = marsPhotosResponseFromJson(jsonString);
 
+// ignore_for_file: constant_identifier_names
+
 import 'dart:convert';
 
 MarsPhotosResponse marsPhotosResponseFromJson(String str) =>

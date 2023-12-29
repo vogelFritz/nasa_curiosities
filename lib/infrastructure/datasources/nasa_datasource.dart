@@ -26,8 +26,9 @@ class NasaDatasource extends PictureDatasource {
         queryParameters: {'sol': 1000});
     final marsPhotosResponse = MarsPhotosResponse.fromJson(response.data);
     final List<MarsPhoto> marsPhotos = [];
-    marsPhotosResponse.photos.forEach(
-        (photo) => marsPhotos.add(MarsPhotoMapper.marsPhotoToEntity(photo)));
+    for (Photo photo in marsPhotosResponse.photos) {
+      marsPhotos.add(MarsPhotoMapper.marsPhotoToEntity(photo));
+    }
     return marsPhotos;
   }
 }
