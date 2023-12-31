@@ -22,10 +22,11 @@ class NasaDatasource extends PictureDatasource {
 
   @override
   Future<List<MarsPhoto>> getMarsPhotos() async {
-    final response = await dio.get('mars-photos/api/v1/rovers/curiosity/photos',
+    final response = await dio.get(
+        '/mars-photos/api/v1/rovers/curiosity/photos',
         queryParameters: {'sol': 1000});
     final marsPhotosResponse = MarsPhotosResponse.fromJson(response.data);
-    final List<MarsPhoto> marsPhotos = [];
+    List<MarsPhoto> marsPhotos = [];
     for (Photo photo in marsPhotosResponse.photos) {
       marsPhotos.add(MarsPhotoMapper.marsPhotoToEntity(photo));
     }

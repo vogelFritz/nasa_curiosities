@@ -36,7 +36,7 @@ class NasaApodResponse {
         copyright: json["copyright"] ?? 'No copyright',
         date: DateTime.parse(json["date"]),
         explanation: json["explanation"],
-        hdurl: json["hdurl"],
+        hdurl: json["hdurl"] ?? '',
         mediaType: json["media_type"],
         serviceVersion: json["service_version"],
         title: json["title"],

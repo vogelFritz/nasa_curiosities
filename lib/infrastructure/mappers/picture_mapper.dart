@@ -4,6 +4,7 @@ import 'package:nasa_curiosities/infrastructure/models/nasa/nasa_apod_response.d
 class PictureMapper {
   static Picture nasaApodToEntity(NasaApodResponse nasaApod) => Picture(
       url: nasaApod.url,
+      mediaType: nasaApod.mediaType,
       copyright: nasaApod.url,
       title: nasaApod.title,
       explanation: nasaApod.explanation);

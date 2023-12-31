@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nasa_curiosities/presentation/screens/apod_screen.dart';
+import 'package:nasa_curiosities/presentation/screens/mars_photos_screen.dart';
 import 'package:nasa_curiosities/presentation/widgets/home_swiper/apod_swiper_item.dart';
 import 'package:nasa_curiosities/presentation/widgets/home_swiper/mars_photos_swiper_item.dart';
 
@@ -28,20 +29,21 @@ class _HomeSwiperState extends ConsumerState<HomeSwiper> {
     final apodList = ref.watch(apodProvider);
     final marsPhotos = ref.watch(marsPhotosProvider);
     final List<Widget> swiperItems = [
-      (apodList.isEmpty) 
-      ? const Center(child: CircularProgressIndicator())
-      : ApodSwiperItem(apod: apodList.first),
-      (marsPhotos.isEmpty) 
-      ? const Center(child: CircularProgressIndicator())
-      : MarsPhotosSwiperItem(marsPhotos: marsPhotos)
+      (apodList.isEmpty)
+          ? const Center(child: CircularProgressIndicator())
+          : ApodSwiperItem(apod: apodList.first),
+      (marsPhotos.isEmpty)
+          ? const Center(child: CircularProgressIndicator())
+          : MarsPhotosSwiperItem(marsPhotos: marsPhotos)
     ];
+    final List<String> screenNames = [ApodScreen.name, MarsPhotosScreen.name];
     return SizedBox(
       height: 510,
       width: double.infinity,
       child: Swiper(
         pagination: const SwiperPagination(),
         onTap: (index) {
-          context.pushNamed(ApodScreen.name);
+          context.pushNamed(screenNames[index]);
         },
         autoplay: true,
         scale: 0.9,
