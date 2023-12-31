@@ -16,7 +16,8 @@ class _ApodSwiperItemState extends State<ApodSwiperItem> {
   @override
   void initState() {
     youtubeController = YoutubePlayerController(
-        initialVideoId: 'QSivvdIyeG4',
+        initialVideoId:
+            YoutubePlayer.convertUrlToId(widget.apod.url) ?? 'QSivvdIyeG4',
         flags: const YoutubePlayerFlags(autoPlay: true, mute: false));
     super.initState();
   }
