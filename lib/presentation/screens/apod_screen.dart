@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nasa_curiosities/presentation/providers/providers.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ApodScreen extends ConsumerWidget {
   static const name = 'apod-screen';
@@ -10,9 +11,20 @@ class ApodScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final apod = ref.watch(apodProvider).first;
+    final youtubeController = YoutubePlayerController(
+        initialVideoId: YoutubePlayer.convertUrlToId(apod.url) ?? 'QSivvdIyeG4',
+        flags: const YoutubePlayerFlags(autoPlay: true, mute: false));
     return Scaffold(
       body: Column(
-        children: [Image.network(apod.url), Text(apod.explanation ?? '')],
+        children: [
+          (apod.mediaType == 'video')
+              ? YoutubePlayer(
+                  controller: youtubeController,
+                  showVideoProgressIndicator: true,
+                  progressIndicatorColor: Colors.amber)
+              : Image.network(apod.url),
+          Text(apod.explanation ?? '')
+        ],
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {

@@ -2,25 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nasa_curiosities/domain/entities/picture.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class ApodSwiperItem extends StatefulWidget {
+class ApodSwiperItem extends StatelessWidget {
   final Picture apod;
   const ApodSwiperItem({super.key, required this.apod});
-
-  @override
-  State<ApodSwiperItem> createState() => _ApodSwiperItemState();
-}
-
-class _ApodSwiperItemState extends State<ApodSwiperItem> {
-  YoutubePlayerController? youtubeController;
-
-  @override
-  void initState() {
-    youtubeController = YoutubePlayerController(
-        initialVideoId:
-            YoutubePlayer.convertUrlToId(widget.apod.url) ?? 'QSivvdIyeG4',
-        flags: const YoutubePlayerFlags(autoPlay: true, mute: false));
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +12,10 @@ class _ApodSwiperItemState extends State<ApodSwiperItem> {
       children: [
         Align(
           alignment: Alignment.center,
-          child: (widget.apod.mediaType == 'video')
-              ? YoutubePlayer(
-                  controller: youtubeController!,
-                  showVideoProgressIndicator: true,
-                  progressIndicatorColor: Colors.amber)
-              : Image.network(widget.apod.url),
+          child: (apod.mediaType == 'video')
+              ? Image.network(YoutubePlayer.getThumbnail(
+                  videoId: YoutubePlayer.convertUrlToId(apod.url)!))
+              : Image.network(apod.url),
         ),
         const Align(
             alignment: Alignment.topLeft,
