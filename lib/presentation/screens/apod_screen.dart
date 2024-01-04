@@ -15,16 +15,18 @@ class ApodScreen extends ConsumerWidget {
         initialVideoId: YoutubePlayer.convertUrlToId(apod.url) ?? 'QSivvdIyeG4',
         flags: const YoutubePlayerFlags(autoPlay: true, mute: false));
     return Scaffold(
-      body: Column(
-        children: [
-          (apod.mediaType == 'video')
-              ? YoutubePlayer(
-                  controller: youtubePlayerController,
-                  showVideoProgressIndicator: true,
-                  progressIndicatorColor: Colors.amber)
-              : Image.network(apod.url),
-          Text(apod.explanation ?? '')
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            (apod.mediaType == 'video')
+                ? YoutubePlayer(
+                    controller: youtubePlayerController,
+                    showVideoProgressIndicator: true,
+                    progressIndicatorColor: Colors.amber)
+                : Image.network(apod.url),
+            Text(apod.explanation ?? '')
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
