@@ -24,9 +24,12 @@ class HomeScreen extends StatelessWidget {
         drawer: const Column(
           children: [
             Icon(Icons.home_filled, color: Colors.white),
+            SizedBox(height: 15),
             Icon(Icons.palette, color: Colors.white),
-            Icon(Icons.info, color: Colors.white),
-            Icon(Icons.settings, color: Colors.white)
+            SizedBox(height: 15),
+            Icon(Icons.settings, color: Colors.white),
+            SizedBox(height: 15),
+            Icon(Icons.info, color: Colors.white)
           ],
         ));
     //SingleChildScrollView(
