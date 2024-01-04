@@ -4,24 +4,11 @@ import 'package:go_router/go_router.dart';
 import 'package:nasa_curiosities/domain/entities/mars_photo.dart';
 import 'package:nasa_curiosities/presentation/providers/providers.dart';
 
-class MarsPhotosScreen extends ConsumerStatefulWidget {
+class MarsPhotosScreen extends ConsumerWidget {
   static const String name = 'mars-photos-screen';
   const MarsPhotosScreen({super.key});
-
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      MarsPhotosScreenState();
-}
-
-class MarsPhotosScreenState extends ConsumerState<MarsPhotosScreen> {
-  @override
-  void initState() {
-    super.initState();
-    //ref.read(marsPhotosProvider.notifier).getMarsPhotos();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final List<MarsPhoto> marsPhotos = ref.watch(marsPhotosProvider);
     return Scaffold(
         body: ListView.builder(

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:nasa_curiosities/domain/entities/mars_photo.dart';
 
 class MarsPhotosSwiperItem extends StatelessWidget {
-  final List<MarsPhoto> marsPhotos;
-  const MarsPhotosSwiperItem({super.key, required this.marsPhotos});
+  final MarsPhoto marsPhoto;
+  const MarsPhotosSwiperItem({super.key, required this.marsPhoto});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [Image.network(marsPhotos.first.imgSrc)],
+      children: [Image.network(marsPhoto.imgSrc)],
     );
   }
 }

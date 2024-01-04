@@ -34,7 +34,7 @@ class _HomeSwiperState extends ConsumerState<HomeSwiper> {
           : ApodSwiperItem(apod: apodList.first),
       (marsPhotos.isEmpty)
           ? const Center(child: CircularProgressIndicator())
-          : MarsPhotosSwiperItem(marsPhotos: marsPhotos)
+          : MarsPhotosSwiperItem(marsPhoto: marsPhotos.first)
     ];
     final List<String> screenNames = [ApodScreen.name, MarsPhotosScreen.name];
     return SizedBox(

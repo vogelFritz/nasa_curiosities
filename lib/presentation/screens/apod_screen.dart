@@ -11,7 +11,7 @@ class ApodScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final apod = ref.watch(apodProvider).first;
-    final youtubeController = YoutubePlayerController(
+    final youtubePlayerController = YoutubePlayerController(
         initialVideoId: YoutubePlayer.convertUrlToId(apod.url) ?? 'QSivvdIyeG4',
         flags: const YoutubePlayerFlags(autoPlay: true, mute: false));
     return Scaffold(
@@ -19,7 +19,7 @@ class ApodScreen extends ConsumerWidget {
         children: [
           (apod.mediaType == 'video')
               ? YoutubePlayer(
-                  controller: youtubeController,
+                  controller: youtubePlayerController,
                   showVideoProgressIndicator: true,
                   progressIndicatorColor: Colors.amber)
               : Image.network(apod.url),
