@@ -13,12 +13,20 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
             title: Center(
                 child: Text('Navigate Through Nasa Stuff!',
-                    style: textStyles.titleLarge))),
+                    style: textStyles.titleLarge, maxLines: 2))),
         body: const Column(
           children: [
             HomeSwiper(),
             SizedBox(height: 40),
             Text('Presentación de la aplicación')
+          ],
+        ),
+        drawer: const Column(
+          children: [
+            Icon(Icons.home_filled, color: Colors.white),
+            Icon(Icons.palette, color: Colors.white),
+            Icon(Icons.info, color: Colors.white),
+            Icon(Icons.settings, color: Colors.white)
           ],
         ));
     //SingleChildScrollView(
