@@ -17,7 +17,9 @@ class HomeScreen extends StatelessWidget {
         body: const Column(
           children: [
             HomeSwiper(),
-            SizedBox(height: 40),
+            SizedBox(height: 20),
+            Divider(),
+            SizedBox(height: 20),
             Text('Presentación de la aplicación')
           ],
         ),
@@ -32,8 +34,5 @@ class HomeScreen extends StatelessWidget {
             Icon(Icons.info, color: Colors.white)
           ],
         ));
-    //SingleChildScrollView(
-    //    physics: const BouncingScrollPhysics(),
-    //    child: Apod(apod: apod.first)));
   }
 }
