@@ -10,15 +10,15 @@ class ApodSwiperItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Align(
-          alignment: Alignment.center,
-          child: (apod.mediaType == 'video')
-              ? Image.network(YoutubePlayer.getThumbnail(
-                  videoId: YoutubePlayer.convertUrlToId(apod.url)!))
-              : Image.network(apod.url),
-        ),
-        const Align(
-            alignment: Alignment.topLeft,
+        (apod.mediaType == 'video')
+            ? Image.network(
+                YoutubePlayer.getThumbnail(
+                    videoId: YoutubePlayer.convertUrlToId(apod.url)!),
+                fit: BoxFit.cover)
+            : Image.network(apod.url),
+        const Positioned(
+            top: 10,
+            left: 15,
             child: Text('Astronomy Picture Of The Day',
                 style: TextStyle(color: Colors.white)))
       ],
