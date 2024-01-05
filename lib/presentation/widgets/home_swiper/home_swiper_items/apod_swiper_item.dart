@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nasa_curiosities/domain/entities/picture.dart';
+import 'package:nasa_curiosities/domain/entities/apod.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ApodSwiperItem extends StatelessWidget {
-  final Picture apod;
+  final Apod apod;
   const ApodSwiperItem({super.key, required this.apod});
 
   @override

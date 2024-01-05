@@ -1,4 +1,4 @@
-class Picture {
+class Apod {
   final String title;
   final String copyright;
   final String url;
@@ -6,7 +6,7 @@ class Picture {
   final String? explanation;
   final String? date;
 
-  const Picture(
+  const Apod(
       {required this.url,
       required this.copyright,
       required this.mediaType,
