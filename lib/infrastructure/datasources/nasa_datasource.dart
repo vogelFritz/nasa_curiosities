@@ -1,11 +1,14 @@
 import 'package:dio/dio.dart';
 
 import 'package:nasa_curiosities/config/constants/environment.dart';
+
 import 'package:nasa_curiosities/domain/datasources/pictures_datasource.dart';
+
 import 'package:nasa_curiosities/domain/entities/mars_photo.dart';
 import 'package:nasa_curiosities/domain/entities/apod.dart';
+
 import 'package:nasa_curiosities/infrastructure/mappers/mars_photo_mapper.dart';
-import 'package:nasa_curiosities/infrastructure/mappers/picture_mapper.dart';
+import 'package:nasa_curiosities/infrastructure/mappers/apod_mapper.dart';
 import 'package:nasa_curiosities/infrastructure/models/nasa/mars_photos.dart';
 import 'package:nasa_curiosities/infrastructure/models/nasa/nasa_apod_response.dart';
 
@@ -13,11 +16,12 @@ class NasaDatasource extends PictureDatasource {
   final dio = Dio(BaseOptions(
       baseUrl: 'https://api.nasa.gov/',
       queryParameters: {'api_key': Environment.nasaApiKey}));
+
   @override
   Future<Apod> getApod() async {
     final response = await dio.get('/planetary/apod');
     final nasaApodResponse = NasaApodResponse.fromJson(response.data);
-    final Apod picture = PictureMapper.nasaApodToEntity(nasaApodResponse);
+    final Apod picture = ApodMapper.nasaApodToEntity(nasaApodResponse);
     return picture;
   }
 

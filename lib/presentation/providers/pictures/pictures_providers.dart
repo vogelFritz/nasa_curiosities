@@ -3,20 +3,21 @@ import 'package:nasa_curiosities/domain/entities/mars_photo.dart';
 import 'package:nasa_curiosities/domain/entities/apod.dart';
 import 'package:nasa_curiosities/presentation/providers/pictures/picture_repository_provider.dart';
 
-final apodProvider = StateNotifierProvider<ApodNotifier, List<Apod>>((ref) {
+final apodProvider = StateNotifierProvider<ApodNotifier, Apod>((ref) {
   final fetchApod = ref.watch(pictureRepositoryProvider).getApod;
   return ApodNotifier(fetchApod: fetchApod);
 });
 
 typedef ApodCallback = Future<Apod> Function();
 
-class ApodNotifier extends StateNotifier<List<Apod>> {
+class ApodNotifier extends StateNotifier<Apod> {
   ApodCallback fetchApod;
 
-  ApodNotifier({required this.fetchApod}) : super([]);
+  ApodNotifier({required this.fetchApod}) : super(const Apod());
+
   Future<void> getApodPicture() async {
     final Apod apodPicture = await fetchApod();
-    state = [...state, apodPicture];
+    state = apodPicture;
   }
 }
 

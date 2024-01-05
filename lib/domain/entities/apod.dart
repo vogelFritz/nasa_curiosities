@@ -7,10 +7,11 @@ class Apod {
   final String? date;
 
   const Apod(
-      {required this.url,
-      required this.copyright,
-      required this.mediaType,
-      required this.title,
+      {this.url =
+          'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg',
+      this.copyright = 'No copyright',
+      this.mediaType = 'image',
+      this.title = 'No title',
       this.explanation,
       this.date});
 }

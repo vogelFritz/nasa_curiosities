@@ -24,12 +24,12 @@ class _HomeSwiperState extends ConsumerState<HomeSwiper> {
 
   @override
   Widget build(BuildContext context) {
-    final apodList = ref.watch(apodProvider);
+    final apod = ref.watch(apodProvider);
     final marsPhotos = ref.watch(marsPhotosProvider);
     final List<Widget> swiperItems = [
-      (apodList.isEmpty)
+      (apod.title == 'No title')
           ? const Center(child: CircularProgressIndicator())
-          : ApodSwiperItem(apod: apodList.first),
+          : ApodSwiperItem(apod: apod),
       (marsPhotos.isEmpty)
           ? const Center(child: CircularProgressIndicator())
           : MarsPhotosSwiperItem(marsPhoto: marsPhotos.first)

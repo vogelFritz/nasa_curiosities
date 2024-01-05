@@ -10,7 +10,7 @@ class ApodScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final apod = ref.watch(apodProvider).first;
+    final apod = ref.watch(apodProvider);
     final youtubePlayerController = YoutubePlayerController(
         initialVideoId: YoutubePlayer.convertUrlToId(apod.url) ?? 'QSivvdIyeG4',
         flags: const YoutubePlayerFlags(autoPlay: true, mute: false));
