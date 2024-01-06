@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nasa_curiosities/presentation/providers/providers.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
+import 'package:nasa_curiosities/presentation/providers/providers.dart';
 
 class ApodScreen extends ConsumerWidget {
   static const name = 'apod-screen';

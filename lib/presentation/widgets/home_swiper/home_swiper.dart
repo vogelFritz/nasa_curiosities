@@ -39,15 +39,16 @@ class _HomeSwiperState extends ConsumerState<HomeSwiper> {
       height: 510,
       width: double.infinity,
       child: Swiper(
-        pagination: const SwiperPagination(),
-        onTap: (index) {
-          context.push(screenPaths[index]);
-        },
-        autoplay: true,
-        scale: 0.9,
-        itemCount: swiperItems.length,
-        itemBuilder: (context, index) => swiperItems[index],
-      ),
+          pagination: const SwiperPagination(),
+          onTap: (index) {
+            context.push(screenPaths[index]);
+          },
+          autoplay: true,
+          loop: false,
+          viewportFraction: 0.8,
+          scale: 0.9,
+          itemCount: swiperItems.length,
+          itemBuilder: (context, index) => Center(child: swiperItems[index])),
     );
   }
 }
