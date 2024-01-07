@@ -14,7 +14,7 @@ class MarsPhotosScreen extends ConsumerWidget {
         body: ListView.builder(
             itemCount: marsPhotos.length,
             itemBuilder: (context, index) =>
-                Image.network(marsPhotos[index].imgSrc)),
+                Image.network(marsPhotos[index].imgSrc, fit: BoxFit.cover)),
         floatingActionButton: FloatingActionButton(
             onPressed: () => context.pop(),
             child: const Icon(Icons.arrow_back_ios_new_sharp)));

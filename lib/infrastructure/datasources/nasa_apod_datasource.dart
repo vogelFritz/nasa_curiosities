@@ -2,14 +2,14 @@ import 'package:dio/dio.dart';
 
 import 'package:nasa_curiosities/config/constants/environment.dart';
 
-import 'package:nasa_curiosities/domain/datasources/pictures_datasource.dart';
+import 'package:nasa_curiosities/domain/datasources/apod_datasource.dart';
 
 import 'package:nasa_curiosities/domain/entities/apod.dart';
 
 import 'package:nasa_curiosities/infrastructure/mappers/apod_mapper.dart';
 import 'package:nasa_curiosities/infrastructure/models/nasa/nasa_apod_response.dart';
 
-class NasaApodDatasource implements PictureDatasource {
+class NasaApodDatasource implements ApodDatasource {
   final dio = Dio(BaseOptions(
       baseUrl: 'https://api.nasa.gov/',
       queryParameters: {'api_key': Environment.nasaApiKey}));

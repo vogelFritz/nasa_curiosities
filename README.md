@@ -1,3 +1,3 @@
 # nasa_curiosities
 
-A new Flutter project.
+Proyecto de Flutter para practicar los conceptos vistos en el curso de Fernando Herrera

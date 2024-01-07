@@ -8,7 +8,7 @@ class MarsPhotosSwiperItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Image.network(marsPhoto.imgSrc),
+      Image.network(marsPhoto.imgSrc, fit: BoxFit.cover),
       const Positioned(
           top: 10,
           left: 15,
