@@ -1,5 +1,5 @@
 import 'package:nasa_curiosities/domain/entities/apod.dart';
 
-abstract class PictureRepository {
+abstract class ApodRepository {
   Future<Apod> getApod();
 }

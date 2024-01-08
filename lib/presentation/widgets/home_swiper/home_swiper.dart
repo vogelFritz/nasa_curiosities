@@ -5,7 +5,7 @@ import 'package:card_swiper/card_swiper.dart';
 
 import 'package:nasa_curiosities/presentation/widgets/home_swiper/home_swiper_items/apod_swiper_item.dart';
 import 'package:nasa_curiosities/presentation/widgets/home_swiper/home_swiper_items/mars_photos_swiper_item.dart';
-import '../../providers/pictures/pictures_providers.dart';
+import '../../providers/providers.dart';
 
 class HomeSwiper extends ConsumerStatefulWidget {
   const HomeSwiper({super.key});
