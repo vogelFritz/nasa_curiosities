@@ -13,8 +13,17 @@ class MarsPhotosScreen extends ConsumerWidget {
     return Scaffold(
         body: ListView.builder(
             itemCount: marsPhotos.length,
-            itemBuilder: (context, index) =>
-                Image.network(marsPhotos[index].imgSrc, fit: BoxFit.cover)),
+            itemBuilder: (context, index) => Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
+                  child: Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                    child: Image.network(marsPhotos[index].imgSrc,
+                        fit: BoxFit.cover),
+                  ),
+                )),
         floatingActionButton: FloatingActionButton(
             onPressed: () => context.pop(),
             child: const Icon(Icons.arrow_back_ios_new_sharp)));

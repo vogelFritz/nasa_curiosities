@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:nasa_curiosities/presentation/widgets/home_swiper/home_swiper.dart';
+import 'package:nasa_curiosities/presentation/shared/widgets/home_swiper/home_swiper.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String name = 'home-screen';

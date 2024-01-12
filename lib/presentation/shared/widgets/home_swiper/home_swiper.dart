@@ -3,9 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:card_swiper/card_swiper.dart';
 
-import 'package:nasa_curiosities/presentation/widgets/home_swiper/home_swiper_items/apod_swiper_item.dart';
-import 'package:nasa_curiosities/presentation/widgets/home_swiper/home_swiper_items/mars_photos_swiper_item.dart';
-import '../../providers/providers.dart';
+import 'package:nasa_curiosities/presentation/shared/widgets/home_swiper/home_swiper_items/apod_swiper_item.dart';
+import 'package:nasa_curiosities/presentation/shared/widgets/home_swiper/home_swiper_items/mars_photos_swiper_item.dart';
+import '../../../providers/providers.dart';
 
 class HomeSwiper extends ConsumerStatefulWidget {
   const HomeSwiper({super.key});
@@ -48,7 +48,13 @@ class _HomeSwiperState extends ConsumerState<HomeSwiper> {
           viewportFraction: 0.8,
           scale: 0.9,
           itemCount: swiperItems.length,
-          itemBuilder: (context, index) => Center(child: swiperItems[index])),
+          itemBuilder: (context, index) => Center(
+              child: Container(
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: swiperItems[index]))),
     );
   }
 }
